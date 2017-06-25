@@ -21,17 +21,17 @@ public class GServlet extends HttpServlet {
 		 * 然后再处理这个乱码即可！
 		 */
 		
-		String username = request.getParameter("username");
+//		String username = request.getParameter("username");
 //		
 //		/*
 //		 * tomcat错误的使用iso来解读
 //		 * 我们需要把解读的结果退回到字节数组
 //		 * 然后再使用正确的utf-8来进行解读
 //		 */
-		byte[] bytes = username.getBytes("iso-8859-1");//回退
-		username = new String(bytes, "utf-8");//再解
-//		request.setCharacterEncoding("utf-8");获取到的仍是乱码,这是因为get没有请求体,我们设置编码是为请求体设置的
-//		String username = request.getParameter("username");
+//		byte[] bytes = username.getBytes("iso-8859-1");//回退
+//		username = new String(bytes, "utf-8");//再解
+		request.setCharacterEncoding("utf-8");//获取到的仍是乱码,这是因为get没有请求体,我们设置编码是为请求体设置的
+		String username = request.getParameter("username");
 		
 		System.out.println(username);
 	}
